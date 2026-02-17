@@ -1,0 +1,116 @@
+# Edward Thorp 可转债套利项目 - 进度配置文件
+# 自动生成，请勿手动修改
+
+project:
+  name: "Edward Thorp Convertible Arbitrage Lab"
+  version: "0.1.0"
+  start_date: "2026-02-15"
+
+# 模块定义
+modules:
+  core:
+    name: "核心功能模块"
+    description: "可转债定价、对冲、信号、回测等核心功能"
+    path: "src/cb_arb/"
+    target_files:
+      - "params.py"
+      - "cb_pricing.py"
+      - "delta_hedging.py"
+      - "signals.py"
+      - "backtest.py"
+    completed: 5
+    total: 5
+    weight: 0.35
+    
+  docs:
+    name: "文档"
+    description: "项目文档和说明"
+    path: "docs/"
+    target_files:
+      - "theory_overview.md"
+      - "pricing_model.md"
+      - "delta_hedging.md"
+      - "backtest_design.md"
+      - "risk_and_limitations.md"
+      - "index.md"
+      - "PROGRESS_TIMELINE.md"
+    completed: 90
+    total: 100
+    weight: 0.20
+    
+  examples:
+    name: "示例与教学"
+    description: "示例脚本和教学Notebook"
+    path: "examples/"
+    target_files:
+      - "run_simple_backtest.py"
+      - "sensitivity_analysis.py"
+    notebooks:
+      - "notebooks/01_introduction.ipynb"
+      - "notebooks/02_pricing_demo.ipynb"
+      - "notebooks/03_delta_hedging.ipynb"
+      - "notebooks/04_signal_generation.ipynb"
+      - "notebooks/05_backtest_analysis.ipynb"
+      - "notebooks/06_advanced_topics.ipynb"
+    completed: 95
+    total: 100
+    weight: 0.20
+    
+  tests:
+    name: "测试"
+    description: "单元测试和集成测试"
+    path: "tests/"
+    target_files:
+      - "test_params.py"
+      - "test_pricing.py"
+      - "test_delta_hedging.py"
+      - "test_signals.py"
+      - "test_backtest.py"
+    completed: 85
+    total: 100
+    weight: 0.15
+    
+  config:
+    name: "项目配置"
+    description: "项目配置和安装文件"
+    path: "./"
+    target_files:
+      - "setup.py"
+      - "requirements.txt"
+      - "pytest.ini"
+      - ".gitignore"
+    completed: 100
+    total: 100
+    weight: 0.10
+
+# 进度计算规则
+progress_rules:
+  # 基于文件变更的进度增量
+  file_change_weight:
+    create: 2.0    # 创建新文件
+    modify: 1.0    # 修改文件
+    delete: 0.5    # 删除文件
+  
+  # 关键词映射
+  keywords:
+    complete: ["完成", "✅", "done", "completed", "finished"]
+    in_progress: ["进行中", "🔄", "in progress", "ongoing", "working"]
+    planned: ["计划中", "📋", "todo", "planned", "pending"]
+    fix: ["修复", "🐛", "fix", "bugfix", "fixed"]
+    feature: ["新增", "✨", "feat", "feature", "add"]
+    docs: ["文档", "📝", "docs", "documentation", "readme"]
+    test: ["测试", "🧪", "test", "testing", "tests"]
+    refactor: ["重构", "♻️", "refactor", "refactoring"]
+
+# 时间表配置
+timeline:
+  format: "markdown"
+  max_entries: 50
+  show_commit_hash: true
+  show_file_changes: true
+  
+# 最后更新时间
+last_updated: "2026-02-17"
+
+# 总体进度
+total_progress: 85

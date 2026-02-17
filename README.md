@@ -116,7 +116,7 @@ Edward Thorp/
 | 示例与教学 | 95% ✅ |
 | 测试 | 85% 🔄 |
 
-详细进度请查看 [开发进度文档](DEVELOPMENT_PROGRESS.md)
+详细进度请查看 [开发进度文档](DEVELOPMENT_PROGRESS.md) 和 [进度时间表](docs/PROGRESS_TIMELINE.md)
 
 ## 📚 文档
 
