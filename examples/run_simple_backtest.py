@@ -1,10 +1,12 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from datetime import datetime
 
 from cb_arb.params import ConvertibleBondContract, TermStructure, CreditCurve
 from cb_arb.signals import MispricingSignalConfig
 from cb_arb.backtest import CBArbBacktester
+from examples.utils import get_figures_dir, get_data_dir
 
 
 def simulate_gbm_path(
@@ -99,6 +101,13 @@ def main():
 
     print(result[["mispricing", "zscore", "signal", "pnl", "cum_pnl"]].tail())
 
+    # 保存回测结果数据到 CSV
+    data_dir = get_data_dir()
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    csv_path = data_dir / f"backtest_result_{timestamp}.csv"
+    result.to_csv(csv_path, encoding='utf-8-sig')
+    print(f"\n回测结果已保存到: {csv_path}")
+
     # 4) 画出累计收益与股票价格，用于观测市场中性效果
     fig, ax1 = plt.subplots(figsize=(10, 5))
     ax1.plot(result.index, result["cum_pnl"], label="CB Arb Cum PnL", color="C0")
@@ -112,6 +121,13 @@ def main():
 
     fig.suptitle("Convertible Arbitrage Backtest (Simulated Data)")
     fig.tight_layout()
+    
+    # 保存图片
+    figures_dir = get_figures_dir()
+    fig_path = figures_dir / f"backtest_result_{timestamp}.png"
+    plt.savefig(fig_path, dpi=300, bbox_inches='tight')
+    print(f"图片已保存到: {fig_path}")
+    
     plt.show()
 
 
